@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mizna Muzammil | Data Engineer Portfolio</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: #f5f7fb; color: #1f2937; line-height: 1.6; }
+    header {
+      background: linear-gradient(135deg, #07111f, #123c7c, #2563eb);
+      color: white;
+      padding: 80px 10%;
+      text-align: center;
+    }
+    header h1 { font-size: 48px; margin-bottom: 10px; letter-spacing: .5px; }
+    header h2 { font-size: 23px; font-weight: normal; color: #dbeafe; margin-bottom: 20px; }
+    header p { max-width: 980px; margin: auto; font-size: 17px; color: #f8fafc; }
+    .header-links { margin-top: 30px; display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; }
+    .header-links a {
+      text-decoration: none;
+      background: white;
+      color: #1d4ed8;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-weight: bold;
+      font-size: 14px;
+      transition: .25s ease;
+    }
+    .header-links a:hover { background: #dbeafe; transform: translateY(-2px); }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: white;
+      box-shadow: 0 2px 14px rgba(0,0,0,0.08);
+      padding: 14px 10%;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    nav a { color: #1f2937; text-decoration: none; font-weight: bold; font-size: 14px; }
+    nav a:hover { color: #2563eb; }
+
+    section { padding: 56px 10%; }
+    .section-title {
+      font-size: 30px;
+      margin-bottom: 25px;
+      color: #111827;
+      border-left: 5px solid #2563eb;
+      padding-left: 15px;
+    }
+    .about, .contact, .education, .summary-box, .fit-box {
+      background: white;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+    .about p, .education p, .contact p, .summary-box p, .fit-box p { margin-bottom: 10px; font-size: 16px; }
+
+    .highlights {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+    .highlight-card {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 15px;
+      padding: 18px;
+      text-align: center;
+    }
+    .highlight-card h3 { color: #1d4ed8; font-size: 25px; margin-bottom: 5px; }
+
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(235px, 1fr)); gap: 20px; }
+    .skill-card {
+      background: white;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      border-top: 4px solid #2563eb;
+    }
+    .skill-card h3 { margin-bottom: 10px; color: #2563eb; font-size: 20px; }
+
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 25px; }
+    .project-card {
+      background: white;
+      border-radius: 18px;
+      padding: 26px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+      border-top: 5px solid #2563eb;
+    }
+    .project-card:hover { transform: translateY(-6px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
+    .project-card h3 { color: #111827; margin-bottom: 12px; font-size: 21px; }
+    .project-card p { margin-bottom: 10px; font-size: 15px; }
+    .mockup {
+      background: linear-gradient(135deg, #dbeafe, #eef2ff);
+      border: 2px dashed #93c5fd;
+      border-radius: 16px;
+      height: 135px;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1d4ed8;
+      font-weight: bold;
+      text-align: center;
+      padding: 20px;
+      font-size: 17px;
+    }
+    .tag {
+      display: inline-block;
+      background: #e0ecff;
+      color: #1d4ed8;
+      padding: 7px 11px;
+      border-radius: 20px;
+      font-size: 13px;
+      margin: 6px 4px 0 0;
+      font-weight: bold;
+    }
+    .project-links { margin: 18px 0; display: flex; gap: 12px; flex-wrap: wrap; }
+    .project-links a {
+      text-decoration: none;
+      background: #2563eb;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+    .project-links a:hover { background: #1d4ed8; }
+
+    .fit-list { margin-left: 20px; }
+    .fit-list li { margin-bottom: 10px; }
+    .contact a { color: #2563eb; text-decoration: none; font-weight: bold; }
+    .contact a:hover { text-decoration: underline; }
+    footer { text-align: center; padding: 28px; background: #111827; color: white; margin-top: 40px; }
+
+    @media (max-width: 768px) {
+      header { padding: 55px 6%; }
+      header h1 { font-size: 34px; }
+      header h2 { font-size: 18px; }
+      section { padding: 38px 6%; }
+      nav { padding: 12px 6%; gap: 12px; }
+      .section-title { font-size: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Mizna Muzammil</h1>
+    <h2>Data Engineer • Python • SQL • ETL • Power BI • AI/ML</h2>
+    <p>
+      Artificial Intelligence undergraduate with practical portfolio experience in data engineering, ETL pipelines,
+      SQL analytics, SQLite databases, API and JSON processing, Power BI dashboards, Python automation,
+      and machine learning workflows. I build clean data pipelines, structured reporting outputs,
+      dashboard-ready datasets, and AI-supported analytical solutions.
+    </p>
+    <div class="header-links">
+      <a href="https://github.com/miznamuzammil12-source" target="_blank">GitHub Profile</a>
+      <a href="https://www.linkedin.com/in/mizna-muzammil-97a74926a" target="_blank">LinkedIn Profile</a>
+      <a href="mailto:misnamusambeer@gmail.com">Email Me</a>
+      <a href="Mizna_Muzammil_CV.pdf" target="_blank">Download CV</a>
+    </div>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#data-projects">Data Engineering</a>
+    <a href="#powerbi-projects">Power BI</a>
+    <a href="#ai-projects">AI/ML</a>
+    <a href="#qa-projects">QA</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="about">
+      <p>
+        I am a Sri Lankan undergraduate following a Bachelor’s degree in Artificial Intelligence
+        at Pak-Austria Fachhochschule Institute of Applied Sciences and Technology.
+      </p>
+      <p>
+        For the Data Engineer role, my portfolio is focused on Python-based data pipelines, ETL processing,
+        SQL analytics, SQLite databases, API data extraction, CSV/JSON processing, Power BI reporting,
+        Excel reporting, and machine learning-ready data preparation.
+      </p>
+      <div class="highlights">
+        <div class="highlight-card"><h3>30</h3><p>Portfolio Projects</p></div>
+        <div class="highlight-card"><h3>5</h3><p>Data Engineering Projects</p></div>
+        <div class="highlight-card"><h3>5</h3><p>Power BI & Analytics Projects</p></div>
+        <div class="highlight-card"><h3>5</h3><p>AI/ML Projects</p></div>
+        <div class="highlight-card"><h3>5</h3><p>QA & AI Testing Projects</p></div>
+        <div class="highlight-card"><h3>5</h3><p>Business Analyst Projects</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills">
+      <div class="skill-card"><h3>Data Engineering</h3><p>ETL pipelines, REST API integration, JSON processing, CSV processing, data validation, structured outputs, data warehouse basics, fact tables, and dimension tables.</p></div>
+      <div class="skill-card"><h3>SQL & Databases</h3><p>SQL queries, SQLite databases, joins, grouping, aggregation, analytical reporting, data modeling, and database-driven dashboards.</p></div>
+      <div class="skill-card"><h3>Python Programming</h3><p>Python, Pandas, NumPy, Requests, data cleaning, data transformation, feature engineering, automation scripts, and Google Colab workflows.</p></div>
+      <div class="skill-card"><h3>BI & Reporting</h3><p>Power BI, Power Query, Excel reporting, KPI dashboards, business reports, revenue analytics, financial analytics, and operational reporting.</p></div>
+      <div class="skill-card"><h3>AI/ML</h3><p>Scikit-learn, Random Forest, model training, model evaluation, prediction workflows, feature engineering, RAG, FAISS, HuggingFace, and NLP.</p></div>
+      <div class="skill-card"><h3>QA & Documentation</h3><p>Selenium, Pytest, manual test cases, bug reporting, QA audits, BRD/SRS, user stories, acceptance criteria, diagrams, and README writing.</p></div>
+      <div class="skill-card"><h3>Tools</h3><p>GitHub, Google Colab, Excel, Power BI Desktop, VS Code, PyCharm, HTML, CSS, Streamlit, Draw.io, Figma, and GitHub Pages.</p></div>
+    </div>
+  </section>
+
+  <section id="data-projects">
+    <h2 class="section-title">Featured Data Engineering Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">Customer Analytics Data Pipeline</div><h3>Customer Analytics Data Pipeline and BI Dashboard</h3><p>Built an end-to-end customer analytics pipeline that extracts customer data from a REST API, combines it with order transaction data, cleans and transforms datasets, stores results in SQLite, runs SQL analysis, and creates dashboard-ready outputs.</p><p><strong>Tools:</strong> Python, Pandas, Requests, SQLite, SQL, OpenPyXL, Matplotlib, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/customer-analytics-data-pipeline" target="_blank">GitHub Repository</a></div><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">REST API</span><span class="tag">ETL</span></div>
+
+      <div class="project-card"><div class="mockup">HR Employee Attrition Analytics</div><h3>HR Employee Attrition Analytics and Prediction Dashboard</h3><p>Developed an HR analytics project to analyze attrition patterns by department, job role, overtime, age group, income group, and job satisfaction, with a Random Forest model for attrition prediction.</p><p><strong>Tools:</strong> Python, Pandas, NumPy, SQLite, SQL, Scikit-learn, OpenPyXL, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/hr-employee-attrition-analytics" target="_blank">GitHub Repository</a></div><span class="tag">HR Analytics</span><span class="tag">SQLite</span><span class="tag">Random Forest</span></div>
+
+      <div class="project-card"><div class="mockup">E-Commerce Sales Data Warehouse</div><h3>E-Commerce Sales Data Warehouse and Analytics Dashboard</h3><p>Built a mini e-commerce data warehouse using customer, product, date, and sales fact tables. Demonstrated ETL processing, fact/dimension modeling, SQLite storage, SQL analytics, and Excel dashboard reporting.</p><p><strong>Tools:</strong> Python, Pandas, SQLite, SQL, ETL, Data Warehouse, OpenPyXL, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/ecommerce-sales-data-warehouse" target="_blank">GitHub Repository</a></div><span class="tag">Data Warehouse</span><span class="tag">Fact Table</span><span class="tag">SQL</span></div>
+
+      <div class="project-card"><div class="mockup">Real-Time Weather Data Pipeline</div><h3>Real-Time Weather Data Pipeline and Analytics Dashboard</h3><p>Created an API-based weather data pipeline that extracts live weather data from a public REST API, processes JSON responses, stores data in SQLite, performs SQL analysis, and creates dashboard-ready weather reports.</p><p><strong>Tools:</strong> Python, Requests, Pandas, REST API, JSON, SQLite, SQL, OpenPyXL, Matplotlib</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/weather-data-pipeline-dashboard" target="_blank">GitHub Repository</a></div><span class="tag">REST API</span><span class="tag">JSON</span><span class="tag">Pipeline</span></div>
+
+      <div class="project-card"><div class="mockup">Financial Fraud Detection Pipeline</div><h3>Financial Transaction Fraud Detection Pipeline and Analytics Dashboard</h3><p>Developed a fraud detection pipeline that processes financial transaction records, creates fraud-risk features, stores clean data in SQLite, runs SQL fraud analysis, trains a Random Forest model, and generates a fraud monitoring dashboard.</p><p><strong>Tools:</strong> Python, Pandas, NumPy, SQLite, SQL, Scikit-learn, Random Forest, OpenPyXL, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/financial-fraud-detection-pipeline" target="_blank">GitHub Repository</a></div><span class="tag">Fraud Detection</span><span class="tag">Machine Learning</span><span class="tag">Analytics</span></div>
+    </div>
+  </section>
+
+  <section id="powerbi-projects">
+    <h2 class="section-title">Power BI & Data Analytics Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">Sales Performance Dashboard</div><h3>Sales Performance & Revenue Analytics Dashboard</h3><p>Interactive dashboard for sales, profit, quantity, monthly trends, categories, segments, and regional performance.</p><p><strong>Tools:</strong> Power BI, Power Query, CSV</p><span class="tag">Power BI</span><span class="tag">Sales Analytics</span><span class="tag">KPI</span></div>
+      <div class="project-card"><div class="mockup">Financial P&L Dashboard</div><h3>Financial Performance & P&L Analytics Dashboard</h3><p>Financial dashboard monitoring revenue, gross profit, expenses, net profit, profit margin, and department performance.</p><p><strong>Tools:</strong> Power BI, KPI Reporting</p><span class="tag">Finance</span><span class="tag">Dashboard</span><span class="tag">Reporting</span></div>
+      <div class="project-card"><div class="mockup">Retail Warehouse Analytics</div><h3>Retail Data Warehouse & ETL Analytics System</h3><p>Retail analytics project using star schema thinking, fact/dimension design, SQL analysis, and reporting outputs.</p><p><strong>Tools:</strong> SQL, ETL, Data Warehouse, Power BI</p><span class="tag">Data Warehouse</span><span class="tag">ETL</span><span class="tag">Power BI</span></div>
+      <div class="project-card"><div class="mockup">Monthly Business Report</div><h3>Automated Monthly Business Reporting System</h3><p>Monthly dashboard for revenue, expenses, profit margin, target achievement, regional KPIs, and manager performance.</p><p><strong>Tools:</strong> Power BI, Power Query, Excel</p><span class="tag">Excel</span><span class="tag">Power Query</span><span class="tag">Business Report</span></div>
+      <div class="project-card"><div class="mockup">Lakehouse Sales Analytics</div><h3>Modern Lakehouse Sales Analytics Dashboard</h3><p>Lakehouse-style analytics using Bronze/Silver/Gold concepts, sales metrics, order status, and data quality monitoring.</p><p><strong>Tools:</strong> Power BI, Lakehouse Concept</p><span class="tag">Lakehouse</span><span class="tag">Data Quality</span><span class="tag">Analytics</span></div>
+    </div>
+  </section>
+
+  <section id="ai-projects">
+    <h2 class="section-title">AI/ML Supporting Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">AI Document QA RAG System</div><h3>AI-Powered Document QA System using RAG</h3><p>Built a PDF question-answering system with extraction, chunking, FAISS embeddings, section retrieval, and answer generation.</p><p><strong>Tools:</strong> Python, Colab, LangChain, FAISS, HuggingFace, FLAN-T5</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/AI-Powered-Document-QA-System-using-RAG" target="_blank">GitHub Repository</a></div><span class="tag">RAG</span><span class="tag">FAISS</span><span class="tag">NLP</span></div>
+      <div class="project-card"><div class="mockup">Agentic AI Support Chatbot</div><h3>Agentic AI Customer Support Chatbot with RAG</h3><p>Created a support chatbot that answers FAQ-based customer questions using semantic retrieval and support-style AI responses.</p><p><strong>Tools:</strong> Python, LangChain, FAISS, HuggingFace, Transformers</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Agentic-AI-Customer-Support-Chatbot-with-RAG" target="_blank">GitHub Repository</a></div><span class="tag">Chatbot</span><span class="tag">RAG</span><span class="tag">Support</span></div>
+      <div class="project-card"><div class="mockup">AI Resume Screening</div><h3>AI Resume Screening System using RAG</h3><p>Developed a resume screening system that compares resumes with job descriptions, ranks profiles, calculates match scores, and supports hiring decisions.</p><p><strong>Tools:</strong> Python, FAISS, Sentence Transformers, Pandas, Scikit-learn</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/AI-Resume-Screening-System-using-RAG" target="_blank">GitHub Repository</a></div><span class="tag">HR Tech</span><span class="tag">NLP</span><span class="tag">Similarity</span></div>
+      <div class="project-card"><div class="mockup">Real-Time Fraud Detection</div><h3>Real-Time Fraud Detection System using ML</h3><p>Built a fraud detection project with transaction preprocessing, feature engineering, model training, evaluation, and prediction workflow.</p><p><strong>Tools:</strong> Python, Pandas, Scikit-learn, Random Forest, Joblib</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Real-Time-Fraud-Detection-System-using-ML" target="_blank">GitHub Repository</a></div><span class="tag">Fraud Detection</span><span class="tag">Random Forest</span><span class="tag">ML</span></div>
+      <div class="project-card"><div class="mockup">MLOps Pipeline</div><h3>End-to-End MLOps Pipeline for ML Model Deployment</h3><p>Implemented a deployment-style ML pipeline with training, saved artifacts, prediction API structure, Docker-ready files, and documentation.</p><p><strong>Tools:</strong> Python, FastAPI, Docker, MLOps concepts</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/End-to-End-MLOps-Pipeline-for-ML-Model-Deployment" target="_blank">GitHub Repository</a></div><span class="tag">MLOps</span><span class="tag">API</span><span class="tag">Deployment</span></div>
+    </div>
+  </section>
+
+  <section id="ux-projects">
+    <h2 class="section-title">UX/UI & Frontend Dashboard Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">AI Customer Support Dashboard</div><h3>AI Customer Support Dashboard</h3><p>Frontend dashboard UI for support tickets, customer issues, response status, and AI-assisted support workflow insights.</p><p><strong>Tools:</strong> HTML, CSS, JavaScript</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/ai-customer-support-dashboard" target="_blank">GitHub Repository</a></div><span class="tag">Dashboard</span><span class="tag">Frontend</span></div>
+      <div class="project-card"><div class="mockup">AI Chatbot Builder</div><h3>AI Chatbot Builder Platform</h3><p>SaaS-style UI for chatbot flow design, bot settings, preview panel, and chatbot builder workflow.</p><p><strong>Tools:</strong> HTML, CSS, JavaScript</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/ai-chatbot-builder-platform" target="_blank">GitHub Repository</a></div><span class="tag">SaaS</span><span class="tag">Chatbot UI</span></div>
+      <div class="project-card"><div class="mockup">SIEM Monitoring Dashboard</div><h3>Cybersecurity SIEM Monitoring Dashboard</h3><p>Security dashboard UI for alerts, threat events, suspicious activities, system status, and SIEM-style analytics.</p><p><strong>Tools:</strong> HTML, CSS, JavaScript</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/siem-security-monitoring-dashboard" target="_blank">GitHub Repository</a></div><span class="tag">Cybersecurity</span><span class="tag">SIEM</span></div>
+      <div class="project-card"><div class="mockup">Resume Screening Dashboard</div><h3>AI Resume Screening Dashboard</h3><p>HR tech dashboard UI for candidate scoring, resume review, skill matching, and recruitment decision support.</p><p><strong>Tools:</strong> HTML, CSS, JavaScript</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/ai-resume-screening-dashboard" target="_blank">GitHub Repository</a></div><span class="tag">HR Tech</span><span class="tag">Dashboard UI</span></div>
+      <div class="project-card"><div class="mockup">SaaS Analytics Dashboard</div><h3>SaaS Product Analytics Dashboard</h3><p>SaaS analytics dashboard UI for product usage, active users, revenue metrics, conversion trends, and growth insights.</p><p><strong>Tools:</strong> HTML, CSS, JavaScript</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/saas-product-analytics-dashboard" target="_blank">GitHub Repository</a></div><span class="tag">SaaS</span><span class="tag">Analytics UI</span></div>
+    </div>
+  </section>
+
+  <section id="qa-projects">
+    <h2 class="section-title">QA & AI Testing Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">QA Automation Platform</div><h3>AI-Powered QA Automation and Bug Intelligence Platform</h3><p>Built a QA automation dashboard that runs Selenium/Pytest regression tests, captures screenshots, stores history, and generates AI-assisted bug reports.</p><p><strong>Tools:</strong> Python, Selenium, Pytest, Streamlit, SQLite, Gemini AI</p><span class="tag">Selenium</span><span class="tag">Pytest</span><span class="tag">QA</span></div>
+      <div class="project-card"><div class="mockup">Test Case Generator</div><h3>AI-Based Requirement-to-Test Case Generation System</h3><p>Developed an AI-assisted QA tool that converts software requirements into functional, negative, boundary, edge, and security test cases with export and history features.</p><p><strong>Tools:</strong> Python, Streamlit, Pandas, Gemini AI</p><span class="tag">Test Cases</span><span class="tag">AI Testing</span></div>
+      <div class="project-card"><div class="mockup">Defect Prediction</div><h3>Machine Learning-Based Software Defect Prediction System</h3><p>Created an ML defect prediction system that uses code metrics to classify modules as defective/non-defective and provide risk recommendations.</p><p><strong>Tools:</strong> Python, Scikit-learn, Streamlit, Joblib</p><span class="tag">Defect Prediction</span><span class="tag">ML</span></div>
+      <div class="project-card"><div class="mockup">Website QA Audit</div><h3>AI-Powered Website Quality and QA Audit Analyzer</h3><p>Built a website QA audit tool that detects broken links, missing alt text, heading issues, form issues, and generates professional QA audit reports.</p><p><strong>Tools:</strong> Python, Requests, BeautifulSoup, Streamlit, Gemini AI</p><span class="tag">QA Audit</span><span class="tag">Web Testing</span></div>
+      <div class="project-card"><div class="mockup">Ticket Classification</div><h3>AI-Powered Customer Support Ticket Classification and Response System</h3><p>Developed a support ticket system that classifies ticket category, urgency, and sentiment, generates responses, stores history, and exports reports.</p><p><strong>Tools:</strong> Python, Streamlit, Scikit-learn, TF-IDF, Logistic Regression, Gemini AI</p><span class="tag">NLP</span><span class="tag">Classification</span></div>
+    </div>
+  </section>
+
+  <section id="ba-projects">
+    <h2 class="section-title">Business Analyst Documentation Projects</h2>
+    <div class="projects">
+      <div class="project-card"><div class="mockup">E-Commerce BA Documentation</div><h3>E-Commerce Website Requirement Analysis</h3><p>Prepared BRD, requirements, user stories, acceptance criteria, test cases, use case diagram, DFD, ERD, activity/sequence/component/state diagrams, and wireframes.</p><p><strong>Tools:</strong> MS Word, Draw.io, Figma, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/E-Commerce-BA-Project" target="_blank">GitHub Repository</a></div><span class="tag">BRD</span><span class="tag">User Stories</span><span class="tag">Test Cases</span></div>
+      <div class="project-card"><div class="mockup">Hospital Appointment BA</div><h3>Hospital Appointment & Patient Management System</h3><p>Created BA documentation for booking, doctor schedules, receptionist workflow, patient records, stakeholder/risk analysis, diagrams, wireframes, and UAT test cases.</p><p><strong>Tools:</strong> MS Word, Draw.io, Figma</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Hospital-Appointment-BA-Project" target="_blank">GitHub Repository</a></div><span class="tag">Healthcare</span><span class="tag">Requirements</span></div>
+      <div class="project-card"><div class="mockup">Ticketing System BA</div><h3>Customer Support Ticketing System</h3><p>Developed BA documentation for ticket creation, assignment, SLA tracking, escalation, resolution, reporting, stakeholder/risk analysis, user stories, diagrams, and test cases.</p><p><strong>Tools:</strong> MS Word, Draw.io, Excel</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Customer-Support-Ticketing-BA-Project" target="_blank">GitHub Repository</a></div><span class="tag">SLA</span><span class="tag">Workflow</span></div>
+      <div class="project-card"><div class="mockup">Inventory & PO BA</div><h3>Inventory & Purchase Order Management System</h3><p>Prepared BA documentation for stock tracking, low-stock alerts, suppliers, purchase orders, goods receiving, reports, diagrams, and test cases.</p><p><strong>Tools:</strong> MS Word, Draw.io, Figma</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Inventory-Purchase-Order-BA-Project" target="_blank">GitHub Repository</a></div><span class="tag">Inventory</span><span class="tag">Business Rules</span></div>
+      <div class="project-card"><div class="mockup">LMS BA Documentation</div><h3>Online Learning Management System</h3><p>Created LMS BA documentation covering enrollment, payment, lessons, assignments, grading, certificates, reports, diagrams, wireframes, and test cases.</p><p><strong>Tools:</strong> MS Word, Draw.io, Figma</p><div class="project-links"><a href="https://github.com/miznamuzammil12-source/Online-Learning-Management-BA-Project" target="_blank">GitHub Repository</a></div><span class="tag">LMS</span><span class="tag">Requirements</span></div>
+    </div>
+  </section>
+
+  <section id="rolefit">
+    <h2 class="section-title">Why I Fit a Data Engineer Role</h2>
+    <div class="fit-box">
+      <ul class="fit-list">
+        <li>Built multiple ETL-style pipelines using Python, Pandas, SQL, SQLite, REST APIs, CSV, and JSON.</li>
+        <li>Prepared structured datasets for dashboards, reporting, machine learning, and business analysis.</li>
+        <li>Created Power BI and Excel reporting projects focused on KPIs, sales, finance, revenue, and operational analytics.</li>
+        <li>Comfortable with GitHub documentation, project structure, README writing, and presenting technical work clearly.</li>
+        <li>Strong supporting knowledge in AI/ML, QA testing, business analysis, and dashboard UI design.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="education">
+      <p><strong>Degree:</strong> Bachelor’s in Artificial Intelligence</p>
+      <p><strong>Institute:</strong> Pak-Austria Fachhochschule Institute of Applied Sciences and Technology</p>
+      <p><strong>Advanced Level:</strong> Bio Systems Technology Stream</p>
+      <p><strong>Nationality:</strong> Sri Lankan</p>
+      <p><strong>Languages:</strong> English, Sinhala, Tamil</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact">
+      <p><strong>Name:</strong> Mizna Muzammil</p>
+      <p><strong>Email:</strong> <a href="mailto:misnamusambeer@gmail.com">misnamusambeer@gmail.com</a></p>
+      <p><strong>Phone:</strong> +94 716 923 298</p>
+      <p><strong>Location:</strong> Sri Lanka / Remote</p>
+      <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/mizna-muzammil-97a74926a" target="_blank">linkedin.com/in/mizna-muzammil-97a74926a</a></p>
+      <p><strong>GitHub:</strong> <a href="https://github.com/miznamuzammil12-source" target="_blank">github.com/miznamuzammil12-source</a></p>
+    </div>
+  </section>
+
+  <footer><p>© 2026 Mizna Muzammil | Data Engineer Portfolio</p></footer>
+
+</body>
+</html>
