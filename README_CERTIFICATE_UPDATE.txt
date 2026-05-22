@@ -1,0 +1,1 @@
+Updated portfolio: removed the duplicate Additional Certificates card. The Certifications section now shows only the Google/Coursera UX Design certificate. Add future certificates as separate cards only when you have their certificate details and PDF files.
